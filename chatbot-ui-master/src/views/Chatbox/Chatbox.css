@@ -1,0 +1,426 @@
+#chatbox {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+.box-container {
+    font-size: 11px;
+    border: 1px solid #ddd; /* Border color and thickness */
+    padding: 10px; /* Padding inside the container */
+    border-radius: 5px; /* Rounded corners */
+    width: 300px; /* Set the width of the box */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+
+/* Container styling for user messages */
+.user {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+  
+  /* Container styling for system messages */
+  .system {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the message text */
+  .user .message {
+    background-color: #007bff; /* User message background color */
+    color: #fff; /* User message text color */
+    padding: 8px 12px;
+    border-radius: 10px;
+    max-width: 70%;
+    margin-right: 10px; /* Add spacing on the right for user messages */
+  }
+  
+  .system .message {
+    background-color: #eee; /* System message background color */
+    color: #333; /* System message text color */
+    padding: 8px 12px;
+    border-radius: 10px;
+    max-width: 70%;
+    margin-left: 10px; /* Add spacing on the left for system messages */
+  }
+  
+ /* Style for the input field and send button at the bottom */
+.input-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+  }
+  
+  .input-bottom input[type="text"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .input-bottom button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .input-bottom button:hover {
+    background-color: #0056b3;
+  }
+  
+
+/* Right-aligned system response */
+.system-response {
+    background-color: #eee;
+    color: #333;
+    padding: 8px 12px;
+    margin: 5px 0;
+    border-radius: 10px;
+    word-wrap: break-word;
+    max-width: 70%;
+    align-self:flex-start; /* Align to the right */
+}
+/* Chatbox.css */
+
+/* Style for the message input and send button */
+.message-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .message-input input[type="text"] {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .message-input button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    margin-left: 10px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .message-input button:hover {
+    background-color: #0056b3;
+  }
+  .close-btn {
+    position: absolute;
+    top: 10px; /* Adjust top position as needed */
+    right: 10px; /* Adjust right position as needed */
+    background-color: transparent;
+    color: #333; /* Close symbol color */
+    border: none;
+    border-radius: 25%;
+    padding: 3px;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 1;
+  }
+  
+  .close-btn:hover {
+    background-color: #ccc;
+    color: #333; /* Close symbol color on hover */
+  }
+
+.chatbox-wrapper {
+    position: relative;
+    min-width: 350px;
+    max-width: 370px;
+    height: 560px;
+    background-color: #FFFFFF;
+    border-radius: 18px;
+    box-shadow: 0 0 50px rgb(0 0 0 / 50%);
+    margin: 30px 30px 20px 30px;
+}
+
+.chatbox-top {
+    background: linear-gradient(123.75deg, #F5821F 1.87%, #FF5C00 120.46%);
+    height: 50%;
+    border-radius: 18px 18px 0 0;
+    color: #FFFFFF;
+    padding: 20px 0 0 40px;
+}
+
+.chatbox-intro {
+    margin-top: 10px;
+}
+
+.chatbox-top h1, .chatbox-top h2 {
+    font-weight: 500;
+}
+
+.faq-wrapper {
+    width: 315px;
+    height: 350px;
+    background-color: #FFFFFF;
+    position: absolute;
+    top: 64%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    box-shadow: 0px 0px 25px 0px #0000000D;
+    border: 1px solid #00000025;
+    padding: 0 20px 20px 20px;
+}
+
+.ques-wrapper {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0px 0px 25px 0px #0000000D;
+    border: 1px solid #00000025;
+}
+
+.bot-img-back {
+    background: linear-gradient(180deg, #FF7600 0%, #FF5C00 100%);
+    background-color: #F5821F;
+    box-shadow: 0px 0px 15px 0px #00000026;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    position: relative;
+    margin-top: 25px;
+}
+
+.faq-wrapper .bot-img {
+    background: linear-gradient(180deg, #FF7600 0%, #FF5C00 100%);
+    background-color: #F5821F;
+    box-shadow: 0px 0px 15px 0px #00000026;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    top: -7.5%;
+}
+
+.faq-wrapper .bot-img img, .bot-img-back img  {
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+}
+
+.bot-img-back img {
+    width: 25px;
+    height: 25px;
+}
+
+.faq-wrapper h2 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.faq-wrapper h2::after {
+    content: '?';
+    display: inline-block;
+    background: #F7B7311F;
+    color: #FF5C00;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.faq-wrapper .faq-lists {
+    margin-top: 40px;
+}
+
+.faq-wrapper .faq-lists ul li span{
+    font-size: 10px;
+    height: auto;
+    color: #FF7600CC;
+    border-radius: 50%;
+    margin: 0px 5px;
+}
+
+.faq-wrapper .faq-lists ul li {
+    border: 1px solid #E1E1E1;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 12px 0;
+    color: #2D2D2D;
+    margin-top: 12px;
+}
+
+.start-btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.start-btn button {
+    padding: 10px 25px;
+    border-radius: 100px;
+    border: 1px solid #D1D1D1;
+    box-shadow: 0px 4px 5px 0px #0000001A;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: flex-end;
+}
+
+.start-btn button img {
+    padding-right: 6px;
+}
+
+
+
+/* ANIMATIONS */
+#chatbox {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+#chatbox { animation-name: fadeInBottom }
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to { opacity: 1 }
+}
+
+.chatbox-top {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+}
+
+.chatbox-top { animation-name: fadeInBottom }
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+    }
+    to { opacity: 1 }
+}
+
+.chatbox-top h1, .chatbox-top h2, .chatbox-intro, .intro-bot-img {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-delay: 1s;
+}
+
+.chatbox-top h1, .chatbox-top h2, .chatbox-intro, .intro-bot-img { animation-name: fadeInBottom }
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+    }
+    to { opacity: 1 }
+}
+
+.faq-wrapper {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-delay: 2s;
+}
+
+.faq-wrapper { animation-name: fadeInBottom }
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+    }
+    to { opacity: 1 }
+}
+.bot-img {
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-delay: 2s;
+}
+
+.bot-img { animation-name: fadeInBottom }
+@keyframes fadeInBottom {
+    from {
+        opacity: 0.5;
+    }
+    to { opacity: 1 }
+}
+
+.faq-lists ul li {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-delay: 0.5s;
+}
+
+.faq-lists ul li { animation-name: fadeInBottom }
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+    }
+    to { opacity: 1 }
+}
+
+.start-btn {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-delay: 2s;
+}
+
+.start-btn { animation-name: fadeInBottom }
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+    }
+    to { opacity: 1 }
+}
+
+.tooltip {
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    z-index: -1;
+}
+
+.tooltip { animation-name: fadeOutBottom }
+@keyframes fadeOutBottom {
+    from {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    to { opacity: 1 }
+}
+
+@media screen and (max-width: 420px) {
+    .chatbox-wrapper {
+        margin: 0;
+        border-radius: 18px 18px 0 18px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    #chatbox {
+        width: 335px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    #chatbox {
+        width: 315px;
+    }
+}
